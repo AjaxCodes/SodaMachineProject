@@ -4,8 +4,33 @@ using System.Text;
 
 namespace SodaMachine
 {
-    class Wallet 
+    public class Wallet 
     {
+
+
+
+
+
+        public Wallet() 
+        {
+            // 6 quarters
+            // 20 dimes
+            // 20 nickels
+            // 50 pennies
+            // totals 5.00
+                
+        
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // member variables
         // constructor
         // member method

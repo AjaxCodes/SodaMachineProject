@@ -5,9 +5,9 @@ using System.Text;
 namespace SodaMachine
 {
     class VendingMachine
-    {
-
+    { 
         // member variables
+        
         // constructor
         // member method
 
