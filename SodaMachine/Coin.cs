@@ -6,28 +6,17 @@ namespace SodaMachine
 {
     public class Coin 
     {
-        
+        // member variables
+        // should be read only get method or private
         public string coinName;
         public double coinValue;
 
       public Coin() 
       {
+            // constructor
 
 
-            List <Coin> coin = new List<Coin>();
       }
-
-
-
-        // member variables
-        // constructor
         // member method
-
-        // should be read only get method or private
-        // I want to have the coins im using as payment added to a list
-
-
-
-
     }
 }

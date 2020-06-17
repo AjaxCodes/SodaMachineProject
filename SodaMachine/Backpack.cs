@@ -8,12 +8,25 @@ namespace SodaMachine
     {
 
         // member variables
-        // constructor
-        // member method
+       
+        
+
+        public Backpack()
+        {
+
+            List<Can> can = new List<Can>();
+            // constructor
 
 
+        }
 
-        // List<can>;
-        //the soda i buy should be added to a list in the backpack
+        void StoreCans() 
+        {
+            // member method
+            //the soda i buy should be added to a list in the backpack
+
+
+        }
+
     }
 }
