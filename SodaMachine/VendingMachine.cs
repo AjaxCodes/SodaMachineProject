@@ -16,6 +16,7 @@ namespace SodaMachine
         { // constructor
             register = new List<Coin>();
             can = new List<Can>();
+            vendingMachine = new List<money>();
             // one of outgoing coins *** need to do
         }
         public void GetCoin(Customer customer, List<Coin> payment, string nameOfCoin)
@@ -31,37 +32,91 @@ namespace SodaMachine
                 }
             }
         }
-        public void GetPayment(Customer customer)
+        public Can GetSoda(string selectCan)
+        {
+            for (int i = 0; i < can.Count; i++)
+            {
+                if (can[i].canName == selectCan)
+                {
+                    return can[i];
+                }
+            }
+            return null;
+        }
+        public double GetPaymentValue(List<Coin> payment)
+        {
+            double totalCost = 0;
+            for (int i = 0; i < payment.Count; i++)
+            {
+                totalCost += payment[i].coinValue;
+            }
+            return totalCost;
+        }
+        public void GetPayment(Customer customer) // grab payment from wallet to hand
         {
             List<Coin> payment = new List<Coin>();
+            
             Console.WriteLine("How many quarters do you want to add to payment?");
             int numberOfQuarters = int.Parse(Console.ReadLine());
             for (int i = 0; i < numberOfQuarters; i++)
             {
-                GetCoin(customer, payment, "Quarter"); // multipule quarters
+                GetCoin(customer, payment, "Quarter"); 
             }
+           
+            Console.WriteLine("How many dimes do you want to add to payment?"); 
             int numberOfDimes = int.Parse(Console.ReadLine());
             for (int i = 0; i < numberOfDimes; i++)
             {
-                GetCoin(customer, payment, "Dime"); // multipule quarters
+                GetCoin(customer, payment, "Dime"); 
             }
+            
+            Console.WriteLine("How many pennies  do you want to add to payment?"); 
             int numberOfPennies = int.Parse(Console.ReadLine());
             for (int i = 0; i < numberOfPennies; i++)
             {
-                GetCoin(customer, payment, "Penny"); // multipule quarters
+                GetCoin(customer, payment, "Penny"); 
             }
+           
+            Console.WriteLine("How many nickels do you want to add to payment?"); 
             int numberOfNickels = int.Parse(Console.ReadLine());
             for (int i = 0; i < numberOfNickels; i++)
             {
-                GetCoin(customer, payment, "Nickel"); // multipule quarters
+                GetCoin(customer, payment, "Nickel"); 
             }
             
         }
-        public void VerifyPaynment(List<Coin> payment, double totalCanCost)
+        public void VerifyPayment(Customer customer, List<Coin> payment, double totalCanCost) // hand to register 
         {
+            if (totalCanCost < GetPaymentValue(payment))
+            {
+                Console.WriteLine("You have enough money");
+                /// purchase method
+            }
+            else if (totalCanCost < GetPaymentValue(payment))
+            {
+                Console.WriteLine("You do not have enough money");
+                // trigger no sale method / refund
+            }
+            else if (VendingMachine.List<Can>.selectCan == 0) 
+            {
+                Console.("Sorry But we do not have that soda available");
+                //trigger refund || make ne selection
+            }
 
         }
-        void AddInitialCoins()
+
+        public void Transaction()
+        {
+            Can SelectedCan = SelectCanForPurchase();
+            GetPayment();
+            //do refund 
+            //add soda
+
+            // ***********
+
+        }
+        
+        public void AddInitialCoins()
         {
             for (int i = 0; i < 20; i++)
             {
@@ -83,9 +138,8 @@ namespace SodaMachine
                 Penny penny = new Penny();
                 register.Add(penny);
             }
-
         }
-        void AddCans()
+        public void AddCans()
         {
             for (int i = 0; i < 10; i++)
             {
@@ -103,21 +157,18 @@ namespace SodaMachine
                 can.Add(orangeSoda);
             }
         }
-
-
-
-
-        public void PurchaseAttempt(Customer customer, Can can)
+        public Can SelectCanForPurchase(Customer customer)
         {
 
             // member method
-
+            Can selectedSoda;
             // Should take from wallet and send to backpack (loop)
 
-            string customerChoice;
+            string customerChoice = Console.ReadLine() ;
             if (customerChoice == "Cola")
             {
                 Console.WriteLine("Cola is .60");
+                selectedSoda = GetSoda("Cola");
                 Console.ReadLine();
             }
             else if (customerChoice == "RootBeer")
@@ -131,33 +182,7 @@ namespace SodaMachine
                 Console.ReadLine();
             }
 
-
-
-
-
-            //  if (customer.wallet.coin <= can.canCost)
-            //{
-            //when attempting to buy a soda if i do not have enough money transaction 
-            //      should not be completed and my money should be refunded
-            // }
-            //else if ()
-            // {
-            //if too much money is passed in I should get my soda and the change 
-            //       this goes to the list of coins in my wallet
-            //  }
-            // else if ()
-            // {
-            //if too much money gets put into the machine and the machine doesent 
-            //     have enough money then no sale, refund to wallet list
-
-            //  }
-            // else if ()
-            // {
-            //if too much money is passed into vending machine and enough change but no soda refund to wallet
-
-            //}
-
-
+            return selectedSoda;
         }
     }
 }
