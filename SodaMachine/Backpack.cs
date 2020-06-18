@@ -8,8 +8,8 @@ namespace SodaMachine
     {
 
         // member variables
-       
-        
+
+        List<Can> can = new List<Can>();
 
         public Backpack()
         {
@@ -22,6 +22,9 @@ namespace SodaMachine
 
         void StoreCans() 
         {
+           
+            
+            
             // member method
             //the soda i buy should be added to a list in the backpack
 

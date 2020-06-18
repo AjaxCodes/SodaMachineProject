@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SodaMachine
 {
@@ -90,21 +91,38 @@ namespace SodaMachine
             if (totalCanCost < GetPaymentValue(payment))
             {
                 Console.WriteLine("You have enough money");
-                /// purchase method
+                GoodPurchase();
             }
             else if (totalCanCost < GetPaymentValue(payment))
             {
                 Console.WriteLine("You do not have enough money");
-                // trigger no sale method / refund
+                BadPurchase();
             }
-            else if (VendingMachine.List<Can>.selectCan == 0) 
+            else if (can.Count == 0) 
             {
-                Console.("Sorry But we do not have that soda available");
-                //trigger refund || make ne selection
+                Console.WriteLine("Sorry But we do not have that soda available");
+                BadPurchase();
             }
 
         }
 
+        public void GoodPurchase(Customer customer  string totalCanCost) 
+        {
+            if (can.Count >= 1 &&  = can.totalCanCost)       // cust list cans has selected item && value recieved is exact)
+            {
+                backPack.can ++;
+            }
+            else if (can.Count >= 1 && customer.wallet.coin, ++ totalCanCost)       // list cans has slected item &&  value is more than canCost)
+            {
+                backPack.can ++ && customer.wallet.coin + ;
+            }
+            
+        
+        }
+        public void BadPurchase() 
+        {
+        
+        }
         public void Transaction()
         {
             Can SelectedCan = SelectCanForPurchase();
