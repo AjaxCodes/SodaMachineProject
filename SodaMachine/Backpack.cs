@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SodaMachine
 {
-    class Backpack : Customer
+    public class Backpack 
     {
 
         // member variables

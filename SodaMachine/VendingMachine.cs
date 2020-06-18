@@ -9,13 +9,16 @@ namespace SodaMachine
         public List<Coin> coin;
         public List<Can> can;
         
+        
+        
+       
         public VendingMachine()
         { // constructor
             coin = new List<Coin>();
             can = new List<Can>();
             // one of outgoing coins *** need to do
         }
-        void AddCoins()
+        void AddInitialCoins()
         {
             for (int i = 0; i < 20; i++)
             {
@@ -57,36 +60,65 @@ namespace SodaMachine
                 can.Add(orangeSoda);
             }
         }
-        public void MakePurchase() 
+       
+        
+        
+        
+        public void PurchaseAttempt(Customer customer, Can can) 
         {
 
             // member method
 
             // Should take from wallet and send to backpack (loop)
+
+           for (int i = 0; i < customer.wallet.coin.Count; i++)
+           {
+              coinsInListValue += customer.wallet.coin[i].coinValue;
+           }
            
-            
-            if (// make purchase issue )
+            string customerChoice = UserInterface.WhatSodaInput();
+            if (customerChoice == "Cola")
             {
-                //when attempting to buy a soda if i do not have enough money transaction 
-                //      should not be completed and my money should be refunded
+                Console.WriteLine("Cola is .60");
+                Console.ReadLine();
             }
-            else if ()
+            else if (customerChoice == "RootBeer")
             {
-                //if too much money is passed in I should get my soda and the change 
-                //       this goes to the list of coins in my wallet
+                Console.WriteLine("RootBeer is .35");
+                Console.ReadLine();
             }
-            else if ()
+            else if (customerChoice == "orangeSoda")
             {
-                //if too much money gets put into the machine and the machine doesent 
-                //     have enough money then no sale, refund to wallet list
+                Console.WriteLine("orangeSoda");
+                Console.ReadLine();
+            }
 
-            }
-            else if () 
-            {
-                //if too much money is passed into vending machine and enough change but no soda refund to wallet
 
-            }
-        
+
+
+
+            //  if (customer.wallet.coin <= can.canCost)
+            //{
+            //when attempting to buy a soda if i do not have enough money transaction 
+            //      should not be completed and my money should be refunded
+            // }
+            //else if ()
+            // {
+            //if too much money is passed in I should get my soda and the change 
+            //       this goes to the list of coins in my wallet
+            //  }
+            // else if ()
+            // {
+            //if too much money gets put into the machine and the machine doesent 
+            //     have enough money then no sale, refund to wallet list
+
+            //  }
+            // else if ()
+            // {
+            //if too much money is passed into vending machine and enough change but no soda refund to wallet
+
+            //}
+
         }
        
     }

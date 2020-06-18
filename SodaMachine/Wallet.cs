@@ -5,23 +5,21 @@ using System.Text;
 namespace SodaMachine
 {
     public class Wallet
-    {
+    {   // Member Variables
+
         public List<Coin> coin; 
 
-       
-        // constructor
-        // member method
         public Wallet()
-        {
+        {  // constructor
+
             coin = new List<Coin>();
-            
-           
-            
-            // 50 pennies
+            AddCoins(); 
+            // Wallet is stocked to begin exercise with $5 in change.
         }
-        void AddCoins() 
-        {
-            for(int i = 0; i <6; i++)
+        void AddCoins()
+        {   // member method
+
+            for (int i = 0; i <6; i++)
             {
                 Quarter quarter = new Quarter();
                 coin.Add(quarter);
