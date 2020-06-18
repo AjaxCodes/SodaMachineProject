@@ -9,8 +9,12 @@ namespace SodaMachine
             // RunSodaMachine();
            
             Customer customer = new Customer();
-            double coin = customer.wallet.coin[0].coinValue;
-            double coinsInListValue = 0;
+
+            VendingMachine machine = new VendingMachine();
+
+            
+           
         }
+
     }
 }
